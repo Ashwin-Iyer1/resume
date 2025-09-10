@@ -155,7 +155,7 @@ Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
 \newcommand\printaddress{
   \small{\@address}
 
-  {\scriptsize\@availability}
+  {\small\@availability}
 }
 
 \makeatother
