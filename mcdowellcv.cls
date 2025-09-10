@@ -98,7 +98,7 @@ Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
 %--------------------------------------------------------------------------------
 
 \ifthenelse{\equal{\platformname}{\notwindowsname}}{
-  \def\namespaceskip{0.575em}
+  \def\namespaceskip{0.375em}
   \def\afterheaderspace{1.1pt}
   \def\beforesectionheaderspace{5pt}
   \def\sectionheadermargin{6pt}
@@ -148,9 +148,14 @@ Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
 
 \newcommand\address[1]{\def\@address{#1}}
 \address{}
+\newcommand\availability[1]{\def\@availability{#1}}
+\availability{}
+
 
 \newcommand\printaddress{
   \small{\@address}
+
+  {\scriptsize\@availability}
 }
 
 \makeatother
@@ -165,7 +170,7 @@ Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
   \typeout {kokoko}
   \typeout \spaceskip
   \spaceskip \namespaceskip \relax
-  \textbf{\LARGE\textls[110]{\textsc{\@name}}}
+  \textbf{\LARGE\textls[50]{\textsc{\@name}}}
 }
 
 \makeatother
