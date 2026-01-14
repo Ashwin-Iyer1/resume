@@ -153,9 +153,10 @@ Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
 
 
 \newcommand\printaddress{
-  \small{\@address}
-
-  {\small\@availability}
+  \begin{tabular}[c]{@{}l@{}}
+    \small{\@address} \\
+    \small{\@availability}
+  \end{tabular}
 }
 
 \makeatother
@@ -190,7 +191,7 @@ Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
 \makeatletter
 \newcommand\makeheader{
   \begin{center}
-    \begin{tabu} to 1\textwidth { X[l,m] X[2,c,m] X[r,m] }
+    \begin{tabu} to 1\textwidth { l X[2,c,m] X[r,m] }
       \printaddress & \printname & \printcontacts \\
     \end{tabu}
   \end{center}
