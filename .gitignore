@@ -39,6 +39,8 @@
 *.alg
 *.loa
 
+.claude
+
 # achemso
 acs-*.bib
 

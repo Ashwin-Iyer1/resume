@@ -88,7 +88,13 @@
 
 	\begin{cvsection}{Projects}
 		\begin{cvsubsection}{}{}{}	
-                \textbf{Prediction Market Trading} | \textit{Rust, AWS} | \underline{\href{https://kalshi.com/ideas/profiles/whao}{Portfolio}} \hfill{December 2025 -- Present} 
+                \textbf{Event-Driven Implied Volatility Mispricing} | \textit{Python, Polygon.io} | \underline{\href{https://ashwiniyer.com/projects/NUSA\%20Spring\%2026\%20RS\%20-\%20Equity\%20Vol.\%20Project.pdf}{Report}} \hfill{January 2026 -- March 2026}
+				\begin{itemize}
+					\item Built a Python backtesting framework extending Gao, Xing \& Zhang (2018) to identify event-driven IV mispricings across \textbf{4} event types (earnings, FOMC, CPI, geopolitical) on \textbf{541} S\&P 500 stocks and \textbf{15} sector ETFs from 2016--2025, processing \textbf{80,000+} option observations.
+						\item Generated sector-level long/short straddle signals achieving a \textbf{63\%} win rate and \textbf{3.62\%} average return per trade out-of-sample on Technology earnings, and a \textbf{74\%} win rate with \textbf{10.81\%} ROI on FOMC events in 2025 testing.
+				\end{itemize}
+				\smallskip
+                \textbf{Prediction Market Trading} | \textit{Rust, AWS} | \underline{\href{https://kalshi.com/ideas/profiles/whao}{Portfolio}} \hfill{December 2025 -- Present}
 				\begin{itemize}
 					\item Implemented a mathematical model to price a specific prediction market in real-time, hosted on an AWS EC2 instance for low-latency API access.
 							\item Capitalized on a market edge and scaled the strategy to achieve a \textbf{net adjusted Sharpe ratio of 1.2} over a two-month period, with a maximum drawdown of \textbf{10\%} and overall returns of \textbf{40\%}.
@@ -98,12 +104,6 @@
 				\begin{itemize}
 					\item Developed a prediction market trading application using WebSockets for real-time data access, processing \textbf{500+} market updates per second with sub-\textbf{50ms} order execution latency.
 							\item Implemented a \textbf{smart order router} across Polymarket and Kalshi, achieving \textbf{2-5\%} average price improvement per trade through \textbf{cross-exchange execution}.
-				\end{itemize}
-				\smallskip
-					\textbf{Algorithmic Options Trading} | \textit{Python, Pandas, NumPy} | \underline{\href{https://github.com/Ashwin-Iyer1/IVTrading}{Github}} \hfill{August 2024 -- December 2024}
-				\begin{itemize}
-					\item Built an algorithmic trading tool scanning \textbf{200+} option chains daily, utilizing the difference between \textbf{implied volatility} and realized volatility to identify mispriced straddles with a \textbf{62\%} win rate.
-							\item Used the \textbf{Black-Scholes model} to calculate implied volatility across \textbf{30-day} rolling windows and performed \textbf{volatility mean reversion} strategies yielding \textbf{10\%} simulated annual returns.
 				\end{itemize}
 				\smallskip
 					\textbf{PaveGuard} | \textit{React, Python, YOLO} | \underline{\href{https://github.com/Ashwin-Iyer1/Pothole-detector}{Github}} \hfill{October 2023}
