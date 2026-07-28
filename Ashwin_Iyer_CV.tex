@@ -30,17 +30,44 @@
 \name{Ashwin Iyer}
 \address{Boston, MA}
 \availability{Availability: May -- Aug 2027}
-\contacts{(682) 239-9481 \linebreak iyer.ashw@northeastern.edu \linebreak \href{https://ashwiniyer.com}{ashwiniyer.com}}
+\contacts{(682) 239-9481 | iyer.ashw@northeastern.edu | \href{https://ashwiniyer.com}{https://ashwiniyer.com}}
 
 \usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Ashwin Iyer Resume}, pdfauthor={Ashwin Iyer}}
+
+% ATS: keep every word intact in the text layer -- no automatic hyphenation and
+% no line breaks at explicit hyphens (keeps e.g. "stress-test" on one line).
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=1em
+
+% With hyphenation off, justified text develops stretched word gaps; ragged
+% right keeps spacing even. \hfill (right-aligned dates/GPA) still overrides.
+% 6em rag allowance: enough that unhyphenatable line ends never overflow the
+% margin, but finite so \hfill still wins the line.
+\usepackage{ragged2e}
+\setlength{\RaggedRightRightskip}{0pt plus 6em}
+
+% ATS: single-column header with the name first in the PDF reading order.
+% (The class default is a 3-column table that puts the address before the name.)
+\makeatletter
+\renewcommand\makeheader{
+  \begin{center}
+    {\spaceskip\namespaceskip\relax\textbf{\LARGE\textls[50]{\@name}}}\\[3pt]
+    \small\@address{} | \@contacts\\
+    \small\@availability
+  \end{center}
+  \vspace*{\afterheaderspace}
+}
+\makeatother
 
 \begin{document}
+	\RaggedRight
 
 	% Print the header
 	\makeheader
-	\vspace{-4mm}
-	\begin{cvsection}{Education}
-		\begin{cvsubsection}{ Northeastern University}{Boston, MA}{Expected May 2028}
+	\begin{cvsection}{EDUCATION}
+		\begin{cvsubsection}{Northeastern University}{}{Expected May 2028}
 		\textbf{Candidate for Bachelor of Science in Computer Science and Business Administration \hfill{GPA: 3.8}}
 		\textbf{Honors/Activities:} NU Systematic Alpha, Dean's List
 		\vspace{-2mm}
@@ -49,9 +76,8 @@
 		\end{cvsubsection}
 	\end{cvsection}
 	% Print the content
-\vspace{-4mm}
 
-\begin{cvsection}{Technical Skills}
+\begin{cvsection}{TECHNICAL SKILLS}
 	\begin{cvsubsection}{}{}{}
 
 \textbf{Languages:} Python, C++, Java, Rust, JavaScript, TypeScript, SQL, Kotlin
@@ -63,59 +89,49 @@
 \textbf{Developer Tools:} Git, AWS (EC2), PostgreSQL, Azure DevOps, IntelliJ, Eclipse, PyCharm, Xcode
 	\end{cvsubsection}
 \end{cvsection}
-\vspace{-4mm}
 
-			\begin{cvsection}{Work Experience}
-		\begin{cvsubsection}{ Global Risk \& Analytics Co-op}{}{December 2025 -- June 2026}
-			\textit{Wellington Management | Boston, MA}
+			\begin{cvsection}{WORK EXPERIENCE}
+		\begin{cvsubsection}{Global Risk \& Analytics Co-op}{}{December 2025 -- June 2026}
+			\textbf{Wellington Management} | Boston, MA
 			\begin{itemize}
-				\item Built Python risk management tools that apply proprietary \textbf{factor risk models} to compute risk metrics across equity and alternative asset portfolios.
-				\item Developed a \textbf{Model Context Protocol (MCP) server} that lets internal LLM workflows query risk metrics, run \textbf{stress-test scenarios}, and flag portfolios breaching mandate limits, adding a compliance guardrail to the risk platform.
-				\item Produced \textbf{top-down portfolio risk reports} surfacing concentration risk across multi-asset portfolios.
+				\item Built Python risk management tools that apply proprietary factor risk models to compute risk metrics across equity and alternative asset portfolios.
+				\item Developed a Model Context Protocol (MCP) server that lets internal LLM workflows query risk metrics, run stress-test scenarios, and flag portfolios breaching mandate limits, adding a compliance guardrail to the risk platform.
+				\item Produced top-down portfolio risk reports surfacing concentration risk across multi-asset portfolios.
 			\end{itemize}
 		\end{cvsubsection}
-\vspace{-2mm}
 
-		\begin{cvsubsection}{ Software Engineering Intern}{}{May 2025 -- August 2025}
-			\textit{Zeal IT Consultants | Dallas, TX}
+		\begin{cvsubsection}{Software Engineering Intern}{}{May 2025 -- August 2025}
+			\textbf{Zeal IT Consultants} | Dallas, TX
 			\begin{itemize}
 				\item Developed the frontend for Trinity Industries' Asset Management System using React and Next.js.
-				\item Increased UI development velocity by \textbf{10+ story points per sprint} and grew team delivery capacity by \textbf{300\%} within one release cycle, accelerating the project timeline by 4 weeks.
-				\item Cut page load times by \textbf{94\%} by migrating state management from MobX to Redux and implementing server-side rendering.
+				\item Increased UI development velocity by 10+ story points per sprint and grew team delivery capacity by 300\% within one release cycle, accelerating the project timeline by 4 weeks.
+				\item Cut page load times by 94\% by migrating state management from MobX to Redux and implementing server-side rendering.
 			\end{itemize}
 		\end{cvsubsection}
 	\end{cvsection}
-	\vspace{-4mm}
 
-	\begin{cvsection}{Projects}
-		\begin{cvsubsection}{}{}{}	
+	\begin{cvsection}{PROJECTS}
+		\begin{cvsubsection}{}{}{}
                 \textbf{Event-Driven Implied Volatility Mispricing} | \textit{Python, Polygon.io} | \underline{\href{https://ashwiniyer.com/projects/NUSA\%20Spring\%2026\%20RS\%20-\%20Equity\%20Vol.\%20Project.pdf}{Report}} \hfill{January 2026 -- March 2026}
 				\begin{itemize}
-					\item Built a Python backtesting framework extending Gao, Xing \& Zhang (2018) to identify event-driven implied volatility (IV) mispricings across \textbf{4} event types on \textbf{541} historical S\&P 500 constituents and \textbf{15} sector ETFs (2016--2025), processing \textbf{80,000+} option observations.
-					\item Generated sector-level long/short straddle signals achieving a \textbf{63\%} win rate and \textbf{3.62\%} average return per trade out-of-sample on Technology earnings, and a \textbf{74\%} win rate with \textbf{10.81\%} ROI on FOMC events in 2025 testing.
+					\item Built a Python backtesting framework extending Gao, Xing \& Zhang (2018) to identify event-driven implied volatility (IV) mispricings across 4 event types on 541 historical S\&P 500 constituents and 15 sector ETFs (2016--2025), processing 80,000+ option observations.
+					\item Generated sector-level long/short straddle signals achieving a 63\% win rate and 3.62\% average return per trade out-of-sample on Technology earnings, and a 74\% win rate with 10.81\% ROI on FOMC events in 2025 testing.
 				\end{itemize}
 				\smallskip
                 \textbf{Prediction Market Trading} | \textit{Rust, AWS} | \underline{\href{https://kalshi.com/ideas/profiles/whao}{Portfolio}} \hfill{December 2025 -- Present}
 				\begin{itemize}
 					\item Implemented a mathematical model in Rust that prices a prediction market in real time, hosted on AWS EC2 for low-latency API access.
-					\item Identified a market edge and scaled the strategy to a \textbf{net adjusted Sharpe ratio of 1.2} over two months, with \textbf{40\%} total returns and a maximum drawdown of \textbf{10\%}.
+					\item Identified a market edge and scaled the strategy to a net adjusted Sharpe ratio of 1.2 over two months, with 40\% total returns and a maximum drawdown of 10\%.
 				\end{itemize}
 				\smallskip
-					\textbf{PM-Trading Desk} | \textit{Python, WebSockets} | \underline{\href{https://github.com/Ashwin-Iyer1/pm-tradingdesk}{Github}} \hfill{September 2025 -- Present}
+					\textbf{PM-Trading Desk} | \textit{Python, WebSockets} | \underline{\href{https://github.com/Ashwin-Iyer1/pm-tradingdesk}{GitHub}} \hfill{September 2025 -- Present}
 				\begin{itemize}
-					\item Developed a prediction market trading application using WebSockets for real-time data access, processing \textbf{500+} market updates per second with \textbf{sub-50ms} order execution latency.
-					\item Implemented a \textbf{smart order router} spanning Polymarket and Kalshi, achieving \textbf{2--5\%} average price improvement per trade through \textbf{cross-exchange execution}.
-				\end{itemize}
-				\smallskip
-					\textbf{PaveGuard} | \textit{React, Python, YOLO} | \underline{\href{https://github.com/Ashwin-Iyer1/Pothole-detector}{Github}} \hfill{October 2023}
-				\begin{itemize}
-					\item Trained a YOLO image recognition model on \textbf{8,000+} images to classify potholes and road fractures across \textbf{5} damage types with \textbf{71\%} accuracy.
-					\item Built a full-stack crowdsourced reporting platform with a React frontend and Python backend, winning the \textbf{top prize} out of \textbf{40+} teams at the AI for All hackathon at UT Dallas.
+					\item Developed a prediction market trading application using WebSockets for real-time data access, processing 500+ market updates per second with sub-50ms order execution latency.
+					\item Implemented a smart order router spanning Polymarket and Kalshi, achieving 2--5\% average price improvement per trade through cross-exchange execution.
 				\end{itemize}
 		\end{cvsubsection}
 	\end{cvsection}
-\vspace{-4mm}
-	\begin{cvsection}{Interests}
+	\begin{cvsection}{INTERESTS}
 		\begin{cvsubsection}{}{}{}
 				Hackathons, Reading, Rubik's Cube, Chess, Poker, Baseball, Blogging, Football, Working Out, Watches, Shoes
 		\end{cvsubsection}
