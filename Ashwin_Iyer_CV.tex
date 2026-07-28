@@ -30,7 +30,7 @@
 \name{Ashwin Iyer}
 \address{Boston, MA}
 \availability{Availability: May -- Aug 2027}
-\contacts{(682) 239-9481 | iyer.ashw@northeastern.edu | \href{https://ashwiniyer.com}{https://ashwiniyer.com}}
+\contacts{(682) 239-9481 | iyer.ashw@northeastern.edu | \href{https://www.linkedin.com/in/ashwin-hao-iyer/}{linkedin.com/in/ashwin-hao-iyer} | \href{https://ashwiniyer.com}{https://ashwiniyer.com}}
 
 \usepackage[hidelinks]{hyperref}
 \hypersetup{pdftitle={Ashwin Iyer Resume}, pdfauthor={Ashwin Iyer}}
@@ -47,6 +47,21 @@
 % margin, but finite so \hfill still wins the line.
 \usepackage{ragged2e}
 \setlength{\RaggedRightRightskip}{0pt plus 6em}
+
+% Section headers at 14.4pt (\Large): inside the recommended 12--16pt band.
+% (The class default \large is 12.0pt at this document size.) Same definition
+% as mcdowellcv.cls otherwise.
+\makeatletter
+\renewenvironment{cvsection}[1]{
+  \vspace*{\beforesectionheaderspace}
+  \begin{adjustwidth}{\sectionheadermargin}{\sectionheadermargin}
+    \textsc{\Large\textbf{#1}}
+  \end{adjustwidth}
+  \vspace*{\beforesectionheaderhrulespace}
+  \hrule height \sectionheaderhrlueheight
+  \vspace*{\aftersectionheaderspace}
+}{}
+\makeatother
 
 % ATS: single-column header with the name first in the PDF reading order.
 % (The class default is a 3-column table that puts the address before the name.)
