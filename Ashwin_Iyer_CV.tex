@@ -29,7 +29,7 @@
 % Set applicant's personal data for header
 \name{Ashwin Iyer}
 \address{Boston, MA}
-\availability{Availability: Jan -- June 2027}
+\availability{Availability: Jan -- Jun 2027}
 \contacts{(682) 239-9481 | iyer.ashw@northeastern.edu | \href{https://www.linkedin.com/in/ashwin-hao-iyer/}{linkedin.com/in/ashwin-hao-iyer} | \href{https://ashwiniyer.com}{https://ashwiniyer.com}}
 
 \usepackage[hidelinks]{hyperref}
@@ -62,84 +62,84 @@
 \makeatother
 
 \begin{document}
-	\RaggedRight
+\RaggedRight
 
-	% Print the header
-	\makeheader
-	% Reclaim space above the first section so project entries can breathe.
-	\vspace{-2.5mm}
-	\begin{cvsection}{EDUCATION}
-		\begin{cvsubsection}{Northeastern University}{}{Expected May 2028}
+% Print the header
+\makeheader
+% Reclaim space above the first section so project entries can breathe.
+\vspace{-2.5mm}
+\begin{cvsection}{EDUCATION}
+	\begin{cvsubsection}{Northeastern University}{}{Expected May 2028}
 		\textbf{Candidate for Bachelor of Science in Computer Science and Business Administration \hfill{GPA: 3.8}}
 		\textbf{Honors/Activities:} NU Systematic Alpha, Dean's List
 		\vspace{-2mm}
-			
+
 		\textbf{Relevant Coursework:} Discrete Structures, Introduction to Databases, Program Design \& Implementation, Business Statistics, Financial Management
-		\end{cvsubsection}
-	\end{cvsection}
-	% Print the content
+	\end{cvsubsection}
+\end{cvsection}
+% Print the content
 
 \begin{cvsection}{TECHNICAL SKILLS}
 	\begin{cvsubsection}{}{}{}
 
-\textbf{Languages:} Python, C++, Java, Rust, JavaScript, TypeScript, SQL, Kotlin
-\vspace{-2mm}
+		\textbf{Languages:} Python, C++, Java, Rust, JavaScript, TypeScript, SQL, Kotlin
+		\vspace{-2mm}
 
-\textbf{Frameworks \& Libraries:} React, Next.js, Redux, Electron, TensorFlow, Keras, Pandas, NumPy
-\vspace{-2mm}
+		\textbf{Frameworks \& Libraries:} React, Next.js, Redux, Electron, TensorFlow, Keras, Pandas, NumPy
+		\vspace{-2mm}
 
-\textbf{Developer Tools:} Git, AWS (EC2), PostgreSQL, Azure DevOps, IntelliJ, Eclipse, PyCharm, Xcode
+		\textbf{Developer Tools:} Git, AWS (EC2), PostgreSQL, Azure DevOps, IntelliJ, Eclipse, PyCharm, Xcode
 	\end{cvsubsection}
 \end{cvsection}
 
-			\begin{cvsection}{WORK EXPERIENCE}
-		\begin{cvsubsection}{Global Risk \& Analytics Co-op}{}{December 2025 -- June 2026}
-			\textbf{Wellington Management} | Boston, MA
-			\begin{itemize}
-				\item Regressed Blackstone private equity fund returns against public-market indices to estimate replicating index weights for a pooled vehicle supporting pre-seeded investments.
-				\item Built a Python AI agent and MCP server for the risk portal, cutting token usage with local SQL caching, session persistence, and data-resolution filtering while automating stress tests and portfolio risk analysis.
-				\item Developed post-shock equity-option exposure analytics and a Shapley decomposition tool that attributes changes in portfolio risk to positioning versus factor-level movements over time.
-			\end{itemize}
-		\end{cvsubsection}
+\begin{cvsection}{WORK EXPERIENCE}
+	\begin{cvsubsection}{Global Risk \& Analytics Co-op}{}{December 2025 -- June 2026}
+		\textbf{Wellington Management} | Boston, MA
+		\begin{itemize}
+			\item Regressed Blackstone private equity fund returns against public-market indices to estimate replicating index weights for a pooled vehicle supporting pre-seeded investments.
+			\item Built a Python AI agent and MCP server for the risk portal, cutting token usage with local SQL caching, session persistence, and data-resolution filtering while automating stress tests and portfolio risk analysis.
+			\item Developed post-shock equity-option exposure analytics and a Shapley decomposition tool that attributes changes in portfolio risk to positioning versus factor-level movements over time.
+		\end{itemize}
+	\end{cvsubsection}
 
-		\begin{cvsubsection}{Software Engineering Intern}{}{May 2025 -- August 2025}
-			\textbf{Zeal IT Consultants} | Dallas, TX
-			\begin{itemize}
-				\item Developed the frontend for Trinity Industries' Asset Management System using React and Next.js.
-				\item Increased UI development velocity by 10+ story points per sprint and grew team delivery capacity by 300\% within one release cycle, accelerating the project timeline by 4 weeks.
-				\item Cut page load times by 94\% by migrating state management from MobX to Redux and implementing server-side rendering.
-			\end{itemize}
-		\end{cvsubsection}
-	\end{cvsection}
+	\begin{cvsubsection}{Software Engineering Intern}{}{May 2025 -- August 2025}
+		\textbf{Zeal IT Consultants} | Dallas, TX
+		\begin{itemize}
+			\item Developed the frontend for Trinity Industries' Asset Management System using React and Next.js.
+			\item Increased UI development velocity by 10+ story points per sprint and grew team delivery capacity by 300\% within one release cycle, accelerating the project timeline by 4 weeks.
+			\item Cut page load times by 94\% by migrating state management from MobX to Redux and implementing server-side rendering.
+		\end{itemize}
+	\end{cvsubsection}
+\end{cvsection}
 
-	\begin{cvsection}{PROJECTS}
-		\begin{cvsubsection}{}{}{}
-                \textbf{Event-Driven Implied Volatility Mispricing} | \textit{Python, Polygon.io} | \underline{\href{https://ashwiniyer.com/projects/NUSA\%20Spring\%2026\%20RS\%20-\%20Equity\%20Vol.\%20Project.pdf}{Report}} \hfill{January 2026 -- March 2026}
-				\begin{itemize}
-					\item Built a Python backtesting framework extending Gao, Xing \& Zhang (2018) to identify event-driven implied volatility (IV) mispricings across 4 event types on 541 historical S\&P 500 constituents and 15 sector ETFs (2016--2025), processing 80,000+ option observations.
-					\item Generated sector-level long/short straddle signals achieving a 63\% win rate and 3.62\% average return per trade out-of-sample on Technology earnings, and a 74\% win rate with 10.81\% ROI on FOMC events in 2025 testing.
-				\end{itemize}
-				\vspace{1.5mm}
-                \textbf{Prediction Market Trading} | \textit{Rust, AWS} | \underline{\href{https://kalshi.com/ideas/profiles/whao}{Portfolio}} \hfill{December 2025 -- Present}
-				\begin{itemize}
-					\item Implemented a mathematical model in Rust that prices a prediction market in real time, hosted on AWS EC2 for low-latency API access.
-					\item Identified a market edge and scaled the strategy to a net adjusted Sharpe ratio of 1.2 over two months, with 40\% total returns and a maximum drawdown of 10\%.
-				\end{itemize}
-				\vspace{1.5mm}
-					\textbf{PM-Trading Desk} | \textit{Python, WebSockets} | \underline{\href{https://github.com/Ashwin-Iyer1/pm-tradingdesk}{GitHub}} \hfill{September 2025 -- Present}
-				\begin{itemize}
-					\item Developed a prediction market trading application using WebSockets for real-time data access, processing 500+ market updates per second with sub-50ms order execution latency.
-					\item Implemented a smart order router spanning Polymarket and Kalshi, achieving 2--5\% average price improvement per trade through cross-exchange execution.
-				\end{itemize}
-		\end{cvsubsection}
-	\end{cvsection}
-	% Keep the final section close to the last project instead of compressing projects.
-	\vspace{-2.5mm}
-	\begin{cvsection}{INTERESTS}
-		\begin{cvsubsection}{}{}{}
-				Hackathons, Reading, Rubik's Cube, Chess, Poker, Baseball, Blogging, Football, Working Out, Watches, Shoes
-		\end{cvsubsection}
-	\end{cvsection}
+\begin{cvsection}{PROJECTS}
+	\begin{cvsubsection}{}{}{}
+		\textbf{Event-Driven Implied Volatility Mispricing} | \textit{Python, Polygon.io} | \underline{\href{https://ashwiniyer.com/projects/NUSA\%20Spring\%2026\%20RS\%20-\%20Equity\%20Vol.\%20Project.pdf}{Report}} \hfill{January 2026 -- March 2026}
+		\begin{itemize}
+			\item Built a Python backtesting framework extending Gao, Xing \& Zhang (2018) to identify event-driven implied volatility (IV) mispricings across 4 event types on 541 historical S\&P 500 constituents and 15 sector ETFs (2016--2025), processing 80,000+ option observations.
+			\item Generated sector-level long/short straddle signals achieving a 63\% win rate and 3.62\% average return per trade out-of-sample on Technology earnings, and a 74\% win rate with 10.81\% ROI on FOMC events in 2025 testing.
+		\end{itemize}
+		\vspace{1.5mm}
+		\textbf{Prediction Market Trading} | \textit{Rust, AWS} | \underline{\href{https://kalshi.com/ideas/profiles/whao}{Portfolio}} \hfill{December 2025 -- Present}
+		\begin{itemize}
+			\item Implemented a mathematical model in Rust that prices a prediction market in real time, hosted on AWS EC2 for low-latency API access.
+			\item Identified a market edge and scaled the strategy to a net adjusted Sharpe ratio of 1.2 over two months, with 40\% total returns and a maximum drawdown of 10\%.
+		\end{itemize}
+		\vspace{1.5mm}
+		\textbf{PM-Trading Desk} | \textit{Python, WebSockets} | \underline{\href{https://github.com/Ashwin-Iyer1/pm-tradingdesk}{GitHub}} \hfill{September 2025 -- Present}
+		\begin{itemize}
+			\item Developed a prediction market trading application using WebSockets for real-time data access, processing 500+ market updates per second with sub-50ms order execution latency.
+			\item Implemented a smart order router spanning Polymarket and Kalshi, achieving 2--5\% average price improvement per trade through cross-exchange execution.
+		\end{itemize}
+	\end{cvsubsection}
+\end{cvsection}
+% Keep the final section close to the last project instead of compressing projects.
+\vspace{-2.5mm}
+\begin{cvsection}{INTERESTS}
+	\begin{cvsubsection}{}{}{}
+		Hackathons, Reading, Rubik's Cube, Chess, Poker, Baseball, Blogging, Football, Working Out, Watches, Shoes
+	\end{cvsubsection}
+\end{cvsection}
 
-	
+
 \end{document}
