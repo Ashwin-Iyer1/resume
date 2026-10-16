@@ -46,7 +46,7 @@ The authored PDF uses Times New Roman. For an openly distributed font available 
 python scripts/build.py --portable
 ```
 
-This uses the explicit `portable` class option (TeX Gyre Termes) in the staging copy only. It does not change the authored source or silently substitute fonts. CI installs LuaLaTeX, required LaTeX packages, and TeX Gyre fonts, then runs the full portable build. TeX versions/platform spacing can change PDF bytes, so reproducibility here means a documented, checked build—not byte-identical output across distributions.
+This uses the explicit `portable` class option (TeX Gyre Termes) in the staging copy only. Kerning is disabled for that option because some PDF extractors otherwise split words such as TypeScript and AWS. It does not change the authored source or silently substitute fonts. CI installs LuaLaTeX, required LaTeX packages, and TeX Gyre fonts, then runs the full portable build. TeX versions/platform spacing can change PDF bytes, so reproducibility here means a documented, checked build—not byte-identical output across distributions.
 
 After inspecting the verified result, `python scripts/build.py --publish` (optionally with `--portable`) replaces the tracked PDF only if all checks pass. Commit the source and generated exports together.
 

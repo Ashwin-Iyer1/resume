@@ -25,6 +25,8 @@
 % Set up the fonts according to options
 \def\mainfontsize{11pt}
 \def\mainfontface{Times New Roman}
+\newif\ifportablefont
+\portablefontfalse
 
 \DeclareOption{calibri}{%
   \def\mainfontface{Calibri}
@@ -34,6 +36,7 @@
 % Explicit opt-in; the authored resume's native default remains Times New Roman.
 \DeclareOption{portable}{%
   \def\mainfontface{TeX Gyre Termes}
+  \portablefonttrue
 }
 
 % Set up papersize according to options, default to US letter
@@ -60,6 +63,9 @@
 
 % Set font face
 \usepackage{fontspec}
+% TeX Gyre's kerning adjustments are read as word breaks by some extractors.
+% Keep complete words in the portable PDF text layer without relaxing validation.
+\ifportablefont\defaultfontfeatures{Kerning=Off}\fi
 \setmainfont[SmallCapsFeatures={Renderer=Basic},
 Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
 
