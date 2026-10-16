@@ -1,40 +1,57 @@
-# McDowell CV
-McDowell CV is a LuaLaTeX class for building neat and space-efficient CVs using the design originally proposed by Gayle L. McDowell at 
-http://www.careercup.com/resume. 
+# Ashwin Iyer · Resume
 
-The class is based on `article` class. The paper format is set to U.S. letterpaper by default. A template showing an example usage of the class is included.
+[Download the one-page PDF](Ashwin_Iyer_CV.pdf) · [Plain text](docs/resume.txt) · [Accessible HTML](docs/index.html) · [Portfolio](https://ashwiniyer.com)
 
-## Screenshot
-<img src="https://github.com/dnl-blkv/mcdowell-cv/blob/master/McDowell_CV.png" width="240px"/>
+The authored LaTeX is the source of truth. This repository includes a one-page PDF and a responsive HTML/text version generated from exactly that source. Education, employers, dates, metrics, and project descriptions are preserved as authored; the build checks are consistency checks, not independent verification of those claims.
 
-## Use Cases
-- A great tool making it easy to build CVs: https://latexresu.me/.
+To read the HTML locally, open `docs/index.html` in a browser or run `python -m http.server 8000` from this directory and visit http://localhost:8000/docs/. It has semantic headings and lists, section navigation, keyboard focus styles, flexible mobile layout, and PDF/plain-text downloads. It does not require JavaScript or external fonts. GitHub's file viewer displays HTML source; download or serve the file to see the rendered resume.
 
-## Class Options
- - `calibri` - sets calibri as the main font. Otherwise the default font is Times New Roman since version 1.1.0.
+## Update once, export consistently
 
-## Commands
-The class features the following commands:
- - `\name{name}` - defines the applicant's name to be printed by `\printheader`.
- - `\address{address}` - defines the applicant's address to be printed by `\printheader`.
- - `\contacts{contacts}` - defines the applicant's contacts to be printed by `\printheader`.
- - `\makecvheader` - prints the CV header consisting of the name (see the `\name` command), address (see the `\address` command) and contacts (see the `\contacts` command).
- 
-## Environments
- - `\begin{cvsection}{sectionname}` - prints a section with a header consisting of the name in bold small caps and a page-wide horizontal line below.
- - `\begin{cvsubsection}[linesnum]{left}{center}{right}{content}` - prints a subsection with header consisting of the `left`, `center` and `right` titles. The optional `linesnum` argument defines the amount of lines in the header. The argument only affects the vertical spacing between the environment header and content thus eliminating the effect of *tabu* package vertical spacing bug.
+Edit [`Ashwin_Iyer_CV.tex`](Ashwin_Iyer_CV.tex), then regenerate the web and text versions:
 
-## Build Instructions
+```sh
+python scripts/export_accessible.py
+python scripts/export_accessible.py --check
+```
 
-### This resume (Ashwin_Iyer_CV)
-Requires TeX Live (`latexmk` + `lualatex`). From the repo root:
+This renderer supports the small LaTeX subset used by this document. It handles nested emphasis, HTTPS links, escaped percent signs, sections, subsections, and bullets. Unknown commands or document structure fail explicitly instead of silently dropping resume content. Add renderer support and tests when introducing new markup.
 
-- PowerShell: `.\build.ps1` (or `pwsh ./build.ps1` on macOS/Linux)
-- macOS/Linux shell: `./build.sh`
-- Raw command: `latexmk -lualatex -g -interaction=nonstopmode Ashwin_Iyer_CV.tex`
+## Build and verify
 
-Both scripts fail with a warning if the PDF is no longer exactly one page or any line overflows the margins (overfull boxes) — keep it that way; the layout and text extraction are tuned for ATS parsing (see `Ashwin_Iyer_CV.tex` preamble comments).
+Install Python 3.10+ and a configured LuaLaTeX distribution (TeX Live or MiKTeX), then:
 
-### Upstream template
-- Make sure `lualatex` (see https://www.luatex.org/download.html) is installed on your machine and is available in the terminal or a command line client of your choice.
-- In the terminal or a command line client of your choice, go to the folder containing `McDowell_CV_Template.tex` and `mcdowellcv.cls`, and run the following command: `lualatex McDowell_CV_Template.tex`.
+```sh
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
+python scripts/verify_resume.py
+python scripts/build.py
+```
+
+PowerShell and shell wrappers remain available as `./build.ps1` and `sh build.sh`. The build invokes LuaLaTeX directly, so it does not need `latexmk` or Perl. It compiles twice in a fresh staging directory with shell escape disabled, applies strict checks, and writes verified output to `build/verified/`. A failed build leaves the tracked PDF untouched. Compiler processes have a bounded timeout; MiKTeX's automatic installer is disabled for this command so missing setup produces an actionable failure rather than an unattended install.
+
+- Exactly one US Letter page.
+- Successful output marker, no overfull boxes, no missing glyphs or TeX errors.
+- Every alphanumeric source token appears in the PDF text layer, with multiplicities preserved; the name comes first.
+- All source hyperlinks appear in PDF annotations with their exact targets.
+- Correct title/author metadata; generated HTML/text match the current source.
+
+These checks are not an ATS certification or PDF accessibility certification. The semantic HTML is the accessible alternative; the compact PDF is not claimed to be a tagged PDF/UA document. Render the PDF and inspect it after layout changes—text parity alone cannot detect overlap.
+
+### Portable fonts
+
+The authored PDF uses Times New Roman. For an openly distributed font available on Linux/CI, run:
+
+```sh
+python scripts/build.py --portable
+```
+
+This uses the explicit `portable` class option (TeX Gyre Termes) in the staging copy only. It does not change the authored source or silently substitute fonts. CI installs LuaLaTeX, required LaTeX packages, and TeX Gyre fonts, then runs the full portable build. TeX versions/platform spacing can change PDF bytes, so reproducibility here means a documented, checked build—not byte-identical output across distributions.
+
+After inspecting the verified result, `python scripts/build.py --publish` (optionally with `--portable`) replaces the tracked PDF only if all checks pass. Commit the source and generated exports together.
+
+On Windows, initialize MiKTeX's LuaLaTeX format and required packages through its normal setup first. This machine's pre-existing MiKTeX format was missing during verification; the existing authored PDF and HTML were verified locally, while the portable compilation is checked in CI.
+
+## Attribution
+
+The layout is derived from Daniil Belyakov's MIT-licensed [McDowell CV class](https://github.com/dnl-blkv/mcdowell-cv), based on Gayle Laakmann McDowell's resume design. Original license headers and [`LICENSE`](LICENSE) are preserved. [`docs/TEMPLATE.md`](docs/TEMPLATE.md) retains the previous template documentation; this repository's build and validation instructions above supersede its old wrapper behavior.

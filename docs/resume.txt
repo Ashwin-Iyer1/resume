@@ -1,0 +1,87 @@
+Ashwin Iyer
+
+Boston, MA | (682) 239-9481 | iyer.ashw@northeastern.edu | linkedin.com/in/ashwin-hao-iyer | https://ashwiniyer.com
+
+Education
+
+Northeastern University
+
+Expected May 2028
+
+Candidate for Bachelor of Science in Computer Science and Business Administration GPA: 3.8
+
+Honors/Activities: Treasurer, NU Systematic Alpha; Dean's List
+
+Relevant Coursework: Discrete Structures, Introduction to Databases, Program Design & Implementation, Business Statistics, Financial Management
+
+Technical Skills
+
+Languages: Python, C++, Java, Rust, JavaScript, TypeScript, SQL, Kotlin
+
+Frameworks & Libraries: React, Next.js, Redux, Electron, TensorFlow, Keras, Pandas, NumPy
+
+AI/ML: Open-weight models, Ollama, LM Studio, Unsloth, ComfyUI, MCP
+
+Developer Tools: Git, AWS (EC2), PostgreSQL, Azure DevOps, IntelliJ, Eclipse, PyCharm, Xcode
+
+Work Experience
+
+Incoming Summer Analyst, Equity Trading
+
+Jun 2027 – Aug 2027
+
+BlackRock | San Francisco, CA
+
+Incoming Institutional Equity Co-op
+
+Jan 2027 – Jun 2027
+
+Morgan Stanley | Derivatives Sales Trading | New York, NY
+
+Global Risk & Analytics Co-op
+
+December 2025 – June 2026
+
+Wellington Management | Boston, MA
+
+Regressed Blackstone private equity fund returns against public-market indices to estimate replicating index weights for a pooled vehicle supporting pre-seeded investments.
+
+Built a Python AI agent and MCP server for the risk portal, cutting token usage with local SQL caching, session persistence, and data-resolution filtering while automating stress tests and portfolio risk analysis.
+
+Developed post-shock equity-option exposure analytics and a Shapley decomposition tool that attributes changes in portfolio risk to positioning versus factor-level movements over time.
+
+Software Engineering Intern
+
+May 2025 – August 2025
+
+Zeal IT Consultants | Dallas, TX
+
+Developed the frontend for Trinity Industries' Asset Management System using React and Next.js.
+
+Increased team delivery capacity by 300% within one release cycle, accelerating the project timeline by 4 weeks.
+
+Decreased page load times by 94% by migrating from MobX to Redux and implementing server-side rendering.
+
+Projects
+
+Event-Driven Implied Volatility Mispricing | Python, Polygon.io | Report January 2026 – March 2026
+
+Built a Python backtesting framework extending Gao, Xing & Zhang (2018) to identify event-driven implied volatility (IV) mispricings across 4 event types, processing 80,000+ option observations.
+
+Generated sector-level long/short straddle signals achieving a 63% win rate and 3.62% average return per trade out-of-sample on Technology earnings, and a 74% win rate with 10.81% ROI on FOMC events in 2025 testing.
+
+Prediction Market Trading | Rust, AWS | Portfolio December 2025 – Present
+
+Built a real-time prediction market pricing model in Rust on AWS EC2 for low-latency API access.
+
+Achieved a 1.2 net adjusted Sharpe ratio, 40% total return, and 10% maximum drawdown over two months.
+
+PM-Trading Desk | Python, WebSockets | GitHub September 2025 – Present
+
+Built a WebSocket prediction market trading app handling 500+ updates per second with sub-50ms order execution.
+
+Implemented a smart order router spanning Polymarket and Kalshi, achieving 2–5% average price improvement per trade through cross-exchange execution.
+
+Interests
+
+Hackathons, Reading, Rubik's Cube, Chess, Poker, Baseball, Blogging, Football, Working Out, Watches, Shoes

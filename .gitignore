@@ -40,6 +40,11 @@
 *.loa
 
 .claude
+build/
+*.local.*
+__pycache__/
+.venv/
+.project-review/
 
 # achemso
 acs-*.bib

@@ -30,6 +30,12 @@
   \def\mainfontface{Calibri}
 }
 
+% Openly distributed Times-compatible font for reproducible CI/Linux builds.
+% Explicit opt-in; the authored resume's native default remains Times New Roman.
+\DeclareOption{portable}{%
+  \def\mainfontface{TeX Gyre Termes}
+}
+
 % Set up papersize according to options, default to US letter
 \def\papersize{letterpaper}
 %Set up bool for adjusting vspacing later
