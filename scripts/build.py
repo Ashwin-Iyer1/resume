@@ -28,6 +28,13 @@ def main():
     parser=argparse.ArgumentParser(); parser.add_argument('--portable',action='store_true',help='Use TeX Gyre Termes without changing authored source'); parser.add_argument('--publish',action='store_true',help='Replace tracked PDF only after validation'); args=parser.parse_args()
     engine=shutil.which('lualatex')
     if not engine: raise SystemExit('lualatex not found. Install TeX Live or configure MiKTeX; Perl/latexmk is not required.')
+    version=run([engine,'--version'],ROOT,15)
+    if 'MiKTeX' in version:
+        finder=shutil.which('kpsewhich')
+        if not finder: raise RuntimeError('MiKTeX kpsewhich is missing; finish configuring the TeX distribution first.')
+        found=subprocess.run([finder,'lualatex.fmt'],capture_output=True,text=True,timeout=15)
+        if found.returncode or not found.stdout.strip():
+            raise RuntimeError('Missing lualatex.fmt. Initialize LuaLaTeX in MiKTeX Console before building; no installer was launched and the published PDF is unchanged.')
     source=(ROOT/'Ashwin_Iyer_CV.tex').read_text(encoding='utf-8')
     compile_source=source
     if args.portable:
@@ -37,7 +44,6 @@ def main():
     stage.mkdir(parents=True)
     (stage/'Ashwin_Iyer_CV.tex').write_text(compile_source,encoding='utf-8')
     shutil.copy2(ROOT/'mcdowellcv.cls',stage/'mcdowellcv.cls')
-    version=run([engine,'--version'],ROOT,15)
     flags=['--disable-installer'] if 'MiKTeX' in version else []
     command=[engine,*flags,'-interaction=nonstopmode','-halt-on-error','-file-line-error','-no-shell-escape','Ashwin_Iyer_CV.tex']
     for i in (1,2):

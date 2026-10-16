@@ -3,12 +3,15 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
+from types import SimpleNamespace
 from pypdf import PdfReader, PdfWriter
 from pypdf.generic import NameObject, TextStringObject
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from export_accessible import inline, uncomment, render, artifacts, group
 from verify_resume import validate_log, validate_pdf, words
+import build
 
 class ResumeTests(unittest.TestCase):
     def setUp(self): self.source=(ROOT/'Ashwin_Iyer_CV.tex').read_text(encoding='utf-8')
@@ -49,5 +52,10 @@ class ResumeTests(unittest.TestCase):
             path=Path(folder)/'synthetic.pdf'
             with path.open('wb') as handle: writer.write(handle)
             with self.assertRaisesRegex(ValueError,'hyperlinks'): validate_pdf(path,self.source)
+    def test_uninitialized_miktex_fails_before_compiling_or_publishing(self):
+        before=(ROOT/'Ashwin_Iyer_CV.pdf').read_bytes()
+        with patch.object(sys,'argv',['build.py','--publish']), patch.object(build.shutil,'which',side_effect=lambda name:name), patch.object(build,'run',return_value='MiKTeX'), patch.object(build.subprocess,'run',return_value=SimpleNamespace(returncode=1,stdout='')):
+            with self.assertRaisesRegex(RuntimeError,'Missing lualatex.fmt'): build.main()
+        self.assertEqual(before,(ROOT/'Ashwin_Iyer_CV.pdf').read_bytes())
 
 if __name__=='__main__': unittest.main()
